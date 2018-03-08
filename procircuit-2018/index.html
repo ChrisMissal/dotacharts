@@ -3,7 +3,7 @@
 <title>DPC</title>
 </head>
 <body>
-    <svg width="960" height="640"></svg>
+    <svg width="1280" height="1280"></svg>
     <script src="https://unpkg.com/lodash"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://unpkg.com/d3-sankey@0.6"></script>
@@ -11,138 +11,131 @@
     <script type="text/javascript">
         var circuit = new Circuit();
 
-        circuit.tournament('StarLadder i-League_Invitational 3')
-            .awarded(150, 'MUTAMBAMAN')
-            .awarded(150, 'Miracle-')
-            .awarded(150, 'MinD_ControL')
-            .awarded(150, 'GH')
-            .awarded(150, 'KuroKy')
-            .awarded(90, 'Moon')
-            .awarded(90, 'Mushi')
-            .awarded(90, 'iceiceice')
-            .awarded(90, 'Jabz')
-            .awarded(90, 'ninjaboogie')
-            .awarded(30, 'Ace')
-            .awarded(30, 'MidOne')
-            .awarded(30, 'YapzOr')
-            .awarded(30, 'Puppey')
-            .awarded(30, 'Fata')
-            .awarded(30, 'Chessie')
-            .awarded(30, 'Limmp')
-            .awarded(30, 'Moo')
-            .awarded(30, 'Zfreek')
-            .awarded(30, 'Kyle');
+        // TOURNAMENTS
+        circuit.tournament('StarLadder Season 3')
+            .awards(150, ['MUTAMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(90, ['Moon','Mushi','iceiceice','Jabz','ninjaboogie'])
+            .awards(30, ['Ace','MidOne','YapzOr','Puppey','Fata','Chessie','Limmp','Moo','Zfreek','Kyle']);
         
         circuit.tournament('PGL Open Bucharest')
-            .awarded(150, 'Moon')
-            .awarded(150, 'Mushi')
-            .awarded(150, 'iceiceice')
-            .awarded(150, 'Jabz')
-            .awarded(150, 'ninjaboogie')
-            .awarded(67, 'Ame')
-            .awarded(67, 'Somnus`M')
-            .awarded(67, 'fy')
-            .awarded(67, 'Yao')
-            .awarded(45, 'QQQ')
-            .awarded(30, 'Universe')
-            .awarded(30, 'Arteezy')
-            .awarded(30, 'Fear')
-            .awarded(30, 'SumaiL')
-            .awarded(30, 'Cr1t-')
-            .awarded(30, 'Forev')
-            .awarded(30, 'Mp')
-            .awarded(30, 'Febby')
-            .awarded(30, 'Dubu')
-            .awarded(30, 'QO')
+            .awards(150, ['Moon','Mushi','iceiceice','Jabz','ninjaboogie'])
+            .awards(67, ['Ame','Somnus`M','fy','Yao'])
+            .awards(45, ['QQQ'])
+            .awards(30, ['UNiVeRsE','Arteezy','Fear','SumaiL','Cr1t-','Forev','MP','Febby','Dubu','QO']);
         
         circuit.tournament('ESL One Hamburg')
-            .awarded(750, 'RAMZES666')
-            .awarded(750, 'No[O]ne-')
-            .awarded(750, '9pasha')
-            .awarded(750, 'Lil')
-            .awarded(750, 'Solo')
-            .awarded(450, 'Ace')
-            .awarded(450, 'MidOne')
-            .awarded(450, 'YapzOr')
-            .awarded(450, 'Puppey')
-            .awarded(450, 'Fata')
-            .awarded(150, 'MUTAMBAMAN')
-            .awarded(150, 'Miracle-')
-            .awarded(150, 'MinD_ControL')
-            .awarded(150, 'GH')
-            .awarded(150, 'KuroKy')
-            .awarded(150, 'Moogy')
-            .awarded(150, 'Sccc')
-            .awarded(150, 'kpii')
-            .awarded(150, 'Kaka')
-            .awarded(150, 'Faith');
+            .awards(750, ['RAMZES666','No[O]ne-','9pasha','Lil','Solo'])
+            .awards(450, ['Ace','MidOne','YapzOr','Puppey','Fata'])
+            .awards(150, ['MUTAMBAMAN','Miracle-','MinD_ControL','GH','KuroKy','Moogy','Sccc','kpii','Kaka','Faith']);
         
         circuit.tournament('Dota Pit League Season 6')
-            .awarded(150, 'MUTAMBAMAN')
-            .awarded(150, 'Miracle-')
-            .awarded(150, 'MinD_ControL')
-            .awarded(150, 'GH')
-            .awarded(150, 'KuroKy')
-            .awarded(90, 'Paparazi')
-            .awarded(90, 'Ori')
-            .awarded(90, 'eLeVeN')
-            .awarded(90, 'LaNm')
-            .awarded(90, 'Fenrir')
-            .awarded(45, 'Moogy')
-            .awarded(45, 'Sccc')
-            .awarded(45, 'kpii')
-            .awarded(45, 'Kaka')
-            .awarded(45, 'Faith')
-            .awarded(15, 'RAMZES666')
-            .awarded(15, 'No[O]ne-')
-            .awarded(15, '9pasha')
-            .awarded(15, 'Lil')
-            .awarded(15, 'Solo');
-
-        circuit.team('Newbee')
-            .recognizes('Moogy')
-            .recognizes('Sccc')
-            .recognizes('kpii')
-            .recognizes('Kaka')
-            .recognizes('Faith');
-
-        circuit.team('Mineski')
-            .recognizes('Moon')
-            .recognizes('Mushi')
-            .recognizes('iceiceice')
-            .recognizes('Jabz')
-            .recognizes('ninjaboogie');
-
-        circuit.team('Team Liquid')
-            .recognizes('MUTAMBAMAN')
-            .recognizes('Miracle-')
-            .recognizes('MinD_ControL')
-            .recognizes('GH')
-            .recognizes('KuroKy');
+            .awards(150, ['MUTAMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(90, ['Paparazi','Ori','eLeVeN','LaNm','Fenrir'])
+            .awards(45, ['Moogy','Sccc','kpii','Kaka','Faith'])
+            .awards(15, ['RAMZES666','No[O]ne-','9pasha','Lil','Solo']);
         
+        circuit.tournament('Perfect World Masters')
+            .awards(150, ['Moogy','Sccc','kpii','Kaka','Faith'])
+            .awards(90, ['Paparazi','Ori','eLeVeN','LaNm','Fenrir'])
+            .awards(45, ['Monet','AhFu','Super','ddc','Inflame'])
+            .awards(15, ['Chessie','Limmp','Moo','Zfreek','Kyle']);
+        
+        circuit.tournament('DreamLeague Season 8')
+            .awards(750, ['Ace','MidOne','YapzOr','Puppey','Fata'])
+            .awards(450, ['MATUMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(225, ['UNiVeRsE','Arteezy','Fear','SumaiL','Cr1t-'])
+            .awards(75, ['RodjER','Crystallize','Dendi','GeneRaL','SoNNeikO']);
+
+        circuit.tournament('Mars Dota 2 League Macau')
+            .awards(150, ['N0tail','Resolut1on','s4','JerAx','Fly'])
+            .awards(90, ['Raven','Kuku','Sam_H','Tims','1437'])
+            .awards(30, ['RodjER','Crystallize','Dendi','GeneRaL','SoNNeikO'])
+            .awards(22, ['RAMZES666','No[O]ne-','9pasha','Lil'])
+            .awards(22, ['Artstyle']);
+
+        circuit.tournament('The Summit 8')
+            .awards(112, ['RAMZES666','No[O]ne-','9pasha','Lil',])
+            .awards(75, ['Artstyle'])
+            .awards(67, ['EternalEnvy','DJ','Pieliedie','Ohaiyo'])
+            .awards(45, ['Abed'])
+            .awards(30, ['N0tail','Resolut1on','s4','JerAx','Fly','Exotic_Deer','Nisha','Patos','eL lisasH','kacor']);
+
+        circuit.tournament('Captain\'s Draft 4.0')
+            .awards(150, ['Ace','MidOne','YapzOr','Puppey','Fata'])
+            .awards(90, ['Paparazi','Ori','eLeVeN','LaNm','Fenrir'])
+            .awards(30, ['N0tail','Resolut1on','s4','JerAx','Fly','Moon','Mushi','iceiceice','Jabz','ninjaboogie'])
+
+        circuit.tournament('ESL One Genting')
+            .awards(200, ['Moogy','Sccc','kpii','Kaka','Faith'])
+            .awards(120, ['MATUMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(40, ['Ace','MidOne','YapzOr','Puppey','Arteezy','Fear','SumaiL','Cr1t-','MISERY'])
+            .awards(20, ['Fata','Ohaiyo']);
+
+        circuit.tournament('StarLadder Season 4')
+            .awards(150, ['MUTAMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(90, ['Ame','Somnus`M','fy','Chalice','xNova'])
+            .awards(30, ['Moogy','Sccc','kpii','Kaka','Faith','Moon','Mushi','iceiceice','Jabz','ninjaboogie']);
+        
+        circuit.tournament('ESL One Katowice')
+            .awards(750, ['RAMZES666','No[O]ne-','9pasha','Lil','Solo'])
+            .awards(450, ['Paparazi','Ori','eLeVeN','LaNm','Fenrir'])
+            .awards(225, ['MUTAMBAMAN','Miracle-','MinD_ControL','GH','KuroKy'])
+            .awards(75, ['UNiVeRsE','EternalEnvy','DJ','Pieliedie','Abed']);
+
+        // TEAMS
         circuit.team('Virtus Pro')
-            .recognizes('RAMZES666')
-            .recognizes('No[O]ne-')
-            .recognizes('9pasha')
-            .recognizes('Solo');
+            .recognizes(['RAMZES666','No[O]ne-','9pasha','Solo','RodjER']);
 
         circuit.team('Team Secret')
-            .recognizes('Ace')
-            .recognizes('MidOne')
-            .recognizes('YapzOr')
-            .recognizes('Puppey')
-            .recognizes('Fata');
+            .recognizes(['Ace','MidOne','YapzOr','Puppey','Fata']);
+
+        circuit.team('Team Liquid')
+            .recognizes(['MATUMBAMAN','Miracle-','MinD_ControL','GH','KuroKy']);
+
+        circuit.team('Vici Gaming')
+            .recognizes(['Paparazi','Ori','eLeVeN','LaNm','Fenrir']);
+
+        circuit.team('Newbee')
+            .recognizes(['Moogy','Sccc','kpii','Kaka','Faith']);
 
         circuit.team('Na`Vi')
-            .recognizes('Lil');
+            .recognizes(['Lil','Crystallize','Dendi','GeneRaL']);
 
+        circuit.team('Mineski')
+            .recognizes(['Moon','Mushi','iceiceice','Jabz','ninjaboogie']);
+
+        circuit.team('Evil Geniuses')
+            .recognizes(['Arteezy','Fear','SumaiL','Cr1t-','MISERY']);
+
+        circuit.team('OG')
+            .recognizes(['N0tail','Resolut1on','s4','JerAx','Fly']);
+            
         circuit.team('Complexity')
-            .recognizes('Chessie')
-            .recognizes('Limmp')
-            .recognizes('Moo')
-            .recognizes('Zfreek')
-            .recognizes('Kyle');
+            .recognizes(['Chessie','Limmp','Moo','Zfreek','Kyle']);
+        
+        circuit.team('Fnatic')
+            .recognizes(['UNiVeRsE','DJ','EternalEnvy','Pieliedie','Abed']);
+        
+        circuit.team('LGD-Gaming')
+            .recognizes(['Ame','fy','Somnus`M','Chalice','xNova']);
 
+        circuit.team('TNC')
+            .recognizes(['Kuku','Raven','Sam_H','Tims']);
+
+        circuit.team('LGD.Forever Young')
+            .recognizes(['Ohaiyo','Yao','Ahfu','Monet','Super']);
+        
+        circuit.team('Immortals')
+            .recognizes(['Dubu','Febby','MP']);
+
+        circuit.team('Kinguin')
+            .recognizes(['Patos','Exotic_Deer','kacor','Nisha']);
+
+        circuit.team('VGJ Thunder')
+            .recognizes(['ddc']);
+
+        circuit.team('Echo International Team')
+            .recognizes(['Forev']);
 
         window.data = circuit.buildGraph();
 

@@ -17,7 +17,15 @@ Team.prototype.removePlayer = function (player) {
     }
 };
 
-Team.prototype.recognizes = function (name) {
+Team.prototype.recognizes = function (names) {
+    var self = this;
+    _.forEach(names || [], function (name) {
+        self.recognize(name);
+    })
+    return self;
+};
+
+Team.prototype.recognize = function (name) {
     var id = { 'name': name };
     var player = _.find(this.circuit.players, id);
     if (player) {
@@ -44,7 +52,15 @@ var Tournament = function (circuit, name) {
     this.name = name;
 };
 
-Tournament.prototype.awarded = function (points, name) {
+Tournament.prototype.awards = function (points, names) {
+    var self = this;
+    _.forEach(names || [], function (name) {
+        self.award(points, name);
+    })
+    return self;
+};
+
+Tournament.prototype.award = function (points, name) {
     var id = { 'name': name };
     var player = _.find(this.circuit.players, id);
     if (!player) {
