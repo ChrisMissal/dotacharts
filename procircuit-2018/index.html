@@ -1,0 +1,217 @@
+<html>
+<head>
+<title>DPC</title>
+</head>
+<body>
+    <svg width="960" height="640"></svg>
+    <script src="https://unpkg.com/lodash"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/d3-sankey@0.6"></script>
+    <script src="scripts/circuit.js"></script>
+    <script type="text/javascript">
+        var circuit = new Circuit();
+
+        circuit.tournament('StarLadder i-League_Invitational 3')
+            .awarded(150, 'MUTAMBAMAN')
+            .awarded(150, 'Miracle-')
+            .awarded(150, 'MinD_ControL')
+            .awarded(150, 'GH')
+            .awarded(150, 'KuroKy')
+            .awarded(90, 'Moon')
+            .awarded(90, 'Mushi')
+            .awarded(90, 'iceiceice')
+            .awarded(90, 'Jabz')
+            .awarded(90, 'ninjaboogie')
+            .awarded(30, 'Ace')
+            .awarded(30, 'MidOne')
+            .awarded(30, 'YapzOr')
+            .awarded(30, 'Puppey')
+            .awarded(30, 'Fata')
+            .awarded(30, 'Chessie')
+            .awarded(30, 'Limmp')
+            .awarded(30, 'Moo')
+            .awarded(30, 'Zfreek')
+            .awarded(30, 'Kyle');
+        
+        circuit.tournament('PGL Open Bucharest')
+            .awarded(150, 'Moon')
+            .awarded(150, 'Mushi')
+            .awarded(150, 'iceiceice')
+            .awarded(150, 'Jabz')
+            .awarded(150, 'ninjaboogie')
+            .awarded(67, 'Ame')
+            .awarded(67, 'Somnus`M')
+            .awarded(67, 'fy')
+            .awarded(67, 'Yao')
+            .awarded(45, 'QQQ')
+            .awarded(30, 'Universe')
+            .awarded(30, 'Arteezy')
+            .awarded(30, 'Fear')
+            .awarded(30, 'SumaiL')
+            .awarded(30, 'Cr1t-')
+            .awarded(30, 'Forev')
+            .awarded(30, 'Mp')
+            .awarded(30, 'Febby')
+            .awarded(30, 'Dubu')
+            .awarded(30, 'QO')
+        
+        circuit.tournament('ESL One Hamburg')
+            .awarded(750, 'RAMZES666')
+            .awarded(750, 'No[O]ne-')
+            .awarded(750, '9pasha')
+            .awarded(750, 'Lil')
+            .awarded(750, 'Solo')
+            .awarded(450, 'Ace')
+            .awarded(450, 'MidOne')
+            .awarded(450, 'YapzOr')
+            .awarded(450, 'Puppey')
+            .awarded(450, 'Fata')
+            .awarded(150, 'MUTAMBAMAN')
+            .awarded(150, 'Miracle-')
+            .awarded(150, 'MinD_ControL')
+            .awarded(150, 'GH')
+            .awarded(150, 'KuroKy')
+            .awarded(150, 'Moogy')
+            .awarded(150, 'Sccc')
+            .awarded(150, 'kpii')
+            .awarded(150, 'Kaka')
+            .awarded(150, 'Faith');
+        
+        circuit.tournament('Dota Pit League Season 6')
+            .awarded(150, 'MUTAMBAMAN')
+            .awarded(150, 'Miracle-')
+            .awarded(150, 'MinD_ControL')
+            .awarded(150, 'GH')
+            .awarded(150, 'KuroKy')
+            .awarded(90, 'Paparazi')
+            .awarded(90, 'Ori')
+            .awarded(90, 'eLeVeN')
+            .awarded(90, 'LaNm')
+            .awarded(90, 'Fenrir')
+            .awarded(45, 'Moogy')
+            .awarded(45, 'Sccc')
+            .awarded(45, 'kpii')
+            .awarded(45, 'Kaka')
+            .awarded(45, 'Faith')
+            .awarded(15, 'RAMZES666')
+            .awarded(15, 'No[O]ne-')
+            .awarded(15, '9pasha')
+            .awarded(15, 'Lil')
+            .awarded(15, 'Solo');
+
+        circuit.team('Newbee')
+            .recognizes('Moogy')
+            .recognizes('Sccc')
+            .recognizes('kpii')
+            .recognizes('Kaka')
+            .recognizes('Faith');
+
+        circuit.team('Mineski')
+            .recognizes('Moon')
+            .recognizes('Mushi')
+            .recognizes('iceiceice')
+            .recognizes('Jabz')
+            .recognizes('ninjaboogie');
+
+        circuit.team('Team Liquid')
+            .recognizes('MUTAMBAMAN')
+            .recognizes('Miracle-')
+            .recognizes('MinD_ControL')
+            .recognizes('GH')
+            .recognizes('KuroKy');
+        
+        circuit.team('Virtus Pro')
+            .recognizes('RAMZES666')
+            .recognizes('No[O]ne-')
+            .recognizes('9pasha')
+            .recognizes('Solo');
+
+        circuit.team('Team Secret')
+            .recognizes('Ace')
+            .recognizes('MidOne')
+            .recognizes('YapzOr')
+            .recognizes('Puppey')
+            .recognizes('Fata');
+
+        circuit.team('Na`Vi')
+            .recognizes('Lil');
+
+        circuit.team('Complexity')
+            .recognizes('Chessie')
+            .recognizes('Limmp')
+            .recognizes('Moo')
+            .recognizes('Zfreek')
+            .recognizes('Kyle');
+
+
+        window.data = circuit.buildGraph();
+
+    </script>
+    <script type="text/javascript">
+        var svg = d3.select("svg"),
+            width = +svg.attr("width"),
+            height = +svg.attr("height");
+        
+        var formatNumber = d3.format(",.0f"),
+            format = function(d) { return formatNumber(d); },
+            color = d3.scaleOrdinal(d3.schemeCategory10);
+        
+        var sankey = d3.sankey()
+            .nodeWidth(15)
+            .nodePadding(10)
+            .extent([[1, 1], [width - 1, height - 6]]);
+        
+        var link = svg.append("g")
+            .attr("class", "links")
+            .attr("fill", "none")
+            .attr("stroke", "#000")
+            .attr("stroke-opacity", 0.2)
+        .selectAll("path");
+        
+        var node = svg.append("g")
+            .attr("class", "nodes")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 10)
+        .selectAll("g");
+        
+        var dpcgraph = window.data;
+
+        sankey(dpcgraph);
+        
+        link = link
+            .data(dpcgraph.links)
+            .enter().append("path")
+            .attr("d", d3.sankeyLinkHorizontal())
+            .attr("stroke-width", function(d) { return Math.max(1, d.width); });
+        
+        link.append("title")
+            .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+        
+        node = node
+            .data(dpcgraph.nodes)
+            .enter().append("g");
+        
+        node.append("rect")
+            .attr("x", function(d) { return d.x0; })
+            .attr("y", function(d) { return d.y0; })
+            .attr("height", function(d) { return d.y1 - d.y0; })
+            .attr("width", function(d) { return d.x1 - d.x0; })
+            .attr("fill", function(d) { return color(d.name.replace(/ .*/, "")); })
+            .attr("stroke", "#000");
+        
+        node.append("text")
+            .attr("x", function(d) { return d.x0 - 6; })
+            .attr("y", function(d) { return (d.y1 + d.y0) / 2; })
+            .attr("dy", "0.35em")
+            .attr("text-anchor", "end")
+            .text(function(d) { return d.name; })
+            .filter(function(d) { return d.x0 < width / 2; })
+            .attr("x", function(d) { return d.x1 + 6; })
+            .attr("text-anchor", "start");
+        
+        node.append("title")
+            .text(function(d) { return d.name + "\n" + format(d.value); });
+
+    </script>
+</body>
+</html>
